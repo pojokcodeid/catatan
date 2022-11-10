@@ -1,0 +1,7 @@
+##Install Eclipse Di Ubunut WSL 2
+sudo apt install libswt-gtk-4-jni
+sudo apt update
+sudo apt install default-jre
+sudo apt install openJdk18
+sudo snap install --classic eclipse
+
