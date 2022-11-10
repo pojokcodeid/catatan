@@ -6,3 +6,5 @@ sudo apt install openJdk18
 sudo snap install --classic eclipse
 eclipse
 
+##Cara Jalankan Springboot dari Maven
+mvn spring-boot:run
