@@ -8,3 +8,5 @@ eclipse
 
 ##Cara Jalankan Springboot dari Maven
 mvn spring-boot:run
+
+mvn archetype:generate -DgroupId=latihan1 -DartifactId=DemoMavenProject -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
