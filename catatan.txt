@@ -10,3 +10,9 @@ eclipse
 mvn spring-boot:run
 
 mvn archetype:generate -DgroupId=latihan1 -DartifactId=DemoMavenProject -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+--linux spring boot run 
+
+chmod +x mvnw
+./mvnw spring-boot:run
