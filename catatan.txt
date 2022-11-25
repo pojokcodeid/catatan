@@ -16,3 +16,13 @@ mvn archetype:generate -DgroupId=latihan1 -DartifactId=DemoMavenProject -Darchet
 
 chmod +x mvnw
 ./mvnw spring-boot:run
+
+
+----cara mengaktivekan snap istall di WSL 2
+-- pastikan gunakan WSL terupdate
+wsl --update
+--masuk ke dir
+sudo nvim /etc/wsl.conf
+--isikan ini
+[boot]
+systemd=true
