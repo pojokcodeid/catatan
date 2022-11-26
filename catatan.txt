@@ -32,3 +32,8 @@ wsl --shutdown (dari wndows + r)
 
 buka kembali ubuntu dari start menu
 coba install sudo snap install htop
+
+---- uninstall distro dari WSL
+1. Uninstall dari aplikasi (control panel)
+2. wsl --list
+3. wsl --unregister (nama distro dari list diatas)
