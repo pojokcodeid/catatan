@@ -26,3 +26,9 @@ sudo nvim /etc/wsl.conf
 --isikan ini
 [boot]
 systemd=true
+
+wsl.exe --terminate ubuntu / Ubuntu-22.04 (sesuaikan dengan nama distronya)
+wsl --shutdown (dari wndows + r)
+
+buka kembali ubuntu dari start menu
+coba install sudo snap install htop
