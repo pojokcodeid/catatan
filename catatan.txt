@@ -10,6 +10,7 @@ eclipse
 mvn spring-boot:run
 
 mvn archetype:generate -DgroupId=latihan1 -DartifactId=DemoMavenProject -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+mvn -B archetype:generate -DgroupId='com.pojokcode' -DartifactId=mvn-example -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion='1.4'
 
 
 --linux spring boot run 
