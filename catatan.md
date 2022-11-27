@@ -40,6 +40,7 @@ mvn -B archetype:generate -DgroupId='com.pojokcode' -DartifactId=mvn-example -Da
     </configuration>
   </plugin>
 ```
+lalu jalankan ini
 ```
 mvn exec:java -Dexec.mainClass=com.pojokcode.App
 ```
@@ -50,22 +51,30 @@ chmod +x mvnw
 ./mvnw spring-boot:run
 ```
 
-----cara mengaktivekan snap istall di WSL 2
--- pastikan gunakan WSL terupdate
+## cara mengaktivekan snap install di WSL 2
+- pastikan gunakan WSL terupdate
+```
 wsl --update
---masuk ke dir
+```
+- masuk ke dir
+```
 sudo nvim /etc/wsl.conf
---isikan ini
+```
+- isikan ini
+```
 [boot]
 systemd=true
-
+```
+lalu jalankan ini
+```
 wsl.exe --terminate ubuntu / Ubuntu-22.04 (sesuaikan dengan nama distronya)
 wsl --shutdown (dari wndows + r)
+```
 
 buka kembali ubuntu dari start menu
 coba install sudo snap install htop
 
----- uninstall distro dari WSL
+## uninstall distro dari WSL
 1. Uninstall dari aplikasi (control panel)
 2. wsl --list
 3. wsl --unregister (nama distro dari list diatas)
