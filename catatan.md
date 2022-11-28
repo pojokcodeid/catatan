@@ -78,3 +78,7 @@ coba install sudo snap install htop
 1. Uninstall dari aplikasi (control panel)
 2. wsl --list
 3. wsl --unregister (nama distro dari list diatas)
+
+## referensi
+https://github.com/AdiCahyaSaputra/my-neovim-setup
+https://github.com/Zeddnyx/Znvim
