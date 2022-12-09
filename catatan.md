@@ -82,3 +82,25 @@ coba install sudo snap install htop
 ## referensi
 https://github.com/AdiCahyaSaputra/my-neovim-setup
 https://github.com/Zeddnyx/Znvim
+
+
+Extension Wajib VS Code
+```
+1. One dark Pro
+2. CFML
+3. Auto Close Tag
+4. Java Pack
+5. Docker 
+6. Fluent Icon
+7. auto rename tag
+8. Error Lens
+9. Indent Rainbow
+10 Live Server
+11 Material Icon theme
+12 PHP
+13 Path Intelisense
+14 Prettier
+15 Rainbow bracket
+16 Project manager For Java FX
+17 WSL
+```
