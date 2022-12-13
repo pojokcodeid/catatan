@@ -104,3 +104,7 @@ Extension Wajib VS Code
 16 Project manager For Java FX
 17 WSL
 ```
+## ini untuk membuat giagram gratis
+```
+https://app.diagrams.net/
+```
