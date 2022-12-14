@@ -103,6 +103,8 @@ Extension Wajib VS Code
 15 Rainbow bracket
 16 Project manager For Java FX
 17 WSL
+18 Draw.io
+19 MongoDB
 ```
 ## ini untuk membuat giagram gratis
 ```
