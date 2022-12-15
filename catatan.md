@@ -106,6 +106,7 @@ Extension Wajib VS Code
 18 Draw.io
 19 MongoDB
 20 eva theme
+21 codeSnap
 ```
 ## ini untuk membuat giagram gratis
 ```
