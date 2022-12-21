@@ -107,6 +107,7 @@ Extension Wajib VS Code
 19 MongoDB
 20 eva theme
 21 codeSnap
+22 Errorlens
 ```
 ## ini untuk membuat giagram gratis
 ```
