@@ -108,6 +108,7 @@ Extension Wajib VS Code
 20 eva theme
 21 codeSnap
 22 Errorlens
+23 Code Runner
 ```
 ## ini untuk membuat giagram gratis
 ```
