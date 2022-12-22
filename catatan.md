@@ -109,6 +109,13 @@ Extension Wajib VS Code
 21 codeSnap
 22 Errorlens
 23 Code Runner
+24 Quokka.js
+25 Rest Client
+26 Todo Hilight
+27 Marquee
+28 Import Cost
+29 Code Time
+30 ES7 React Snipets
 ```
 ## ini untuk membuat giagram gratis
 ```
