@@ -80,8 +80,9 @@ coba install sudo snap install htop
 3. wsl --unregister (nama distro dari list diatas)
 
 ## referensi
-https://github.com/AdiCahyaSaputra/my-neovim-setup
-https://github.com/Zeddnyx/Znvim
+https://github.com/AdiCahyaSaputra/my-neovim-setup  <br>
+https://github.com/Zeddnyx/Znvim  <br>
+https://github.com/ChristianChiarulli/nvim  <br>
 
 
 Extension Wajib VS Code
