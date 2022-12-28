@@ -83,7 +83,8 @@ coba install sudo snap install htop
 https://github.com/AdiCahyaSaputra/my-neovim-setup  <br>
 https://github.com/Zeddnyx/Znvim  <br>
 https://github.com/ChristianChiarulli/nvim  <br>
-https://github.com/LunarVim/starter.lvim
+https://github.com/LunarVim/starter.lvim <br>
+https://github.com/DaikyXendo/nvim-material-icon
 
 
 Extension Wajib VS Code
