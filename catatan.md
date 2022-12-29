@@ -126,5 +126,7 @@ https://app.diagrams.net/
 ```
 ## INstall google java format 
 ```
+https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#formatting
+https://www.npmjs.com/package/google-java-format
 npm i -g google-java-format
 ```
