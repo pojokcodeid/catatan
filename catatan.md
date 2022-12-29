@@ -124,3 +124,7 @@ Extension Wajib VS Code
 ```
 https://app.diagrams.net/
 ```
+## INstall google java format 
+```
+npm i -g google-java-format
+```
