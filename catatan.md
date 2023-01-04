@@ -135,4 +135,11 @@ npm i -g google-java-format
 ```
 sudo dpkg -i ./nvim-linux64.deb
 sudo apt install -f
+
+sudo apt-get install git 
+
+sudo apt install build-essential libssl-dev
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+source ~/.bashrc
+nvm install 18.12.0
 ```
