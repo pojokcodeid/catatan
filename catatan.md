@@ -130,3 +130,9 @@ https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#for
 https://www.npmjs.com/package/google-java-format
 npm i -g google-java-format
 ```
+
+# Install & Config Neovim Kali Linux
+```
+sudo dpkg -i ./nvim-linux64.deb
+sudo apt install -f
+```
