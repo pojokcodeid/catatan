@@ -152,3 +152,7 @@ https://github.com/jesseduffield/lazygit#ubuntu
 
 -- selanjutnya install config
 ```
+## Update NPM
+```
+npm install npm@latest -g
+```
