@@ -156,3 +156,7 @@ https://github.com/jesseduffield/lazygit#ubuntu
 ```
 npm install npm@latest -g
 ```
+## Run Cpp File 
+```
+g++ coba.cpp -o coba && ./coba
+```
