@@ -86,6 +86,7 @@ https://github.com/ChristianChiarulli/nvim  <br>
 https://github.com/LunarVim/starter.lvim <br>
 https://github.com/DaikyXendo/nvim-material-icon<br>
 https://github.com/jdhao/nvim-config
+https://github.com/wuelnerdotexe/nvim
 
 https://github.com/mfussenegger/dotfiles/blob/833d634251ebf3bf7e9899ed06ac710735d392da/vim/.config/nvim/ftplugin/java.lua#L1-L149
 
