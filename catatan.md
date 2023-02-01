@@ -164,4 +164,9 @@ g++ coba.cpp -o coba && ./coba
 ## Best Linux Theme
 https://www.gnome-look.org/p/1681315  <br>
 https://www.gnome-look.org/p/1681475  <br>
-https://draculatheme.com/gtk
+https://draculatheme.com/gtk  <br>
+
+https://www.gnome-look.org/p/1267246/ <br>
+https://www.gnome-look.org/p/1733012/ <br>
+https://imgur.com/SBKjnxm
+
