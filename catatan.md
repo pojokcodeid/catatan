@@ -170,3 +170,6 @@ https://www.gnome-look.org/p/1267246/ <br>
 https://www.gnome-look.org/p/1733012/ <br>
 https://imgur.com/SBKjnxm
 
+## linux terminal welcome theme
+https://github.com/Chick2D/neofetch-themes#idlifetch
+
