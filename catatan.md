@@ -173,3 +173,6 @@ https://imgur.com/SBKjnxm
 ## linux terminal welcome theme
 https://github.com/Chick2D/neofetch-themes#idlifetch
 
+## Install Debian file on Arch Linux 
+- https://www.makeuseof.com/install-deb-packages-arch-linux/
+
