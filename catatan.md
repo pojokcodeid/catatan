@@ -84,6 +84,7 @@ https://github.com/AdiCahyaSaputra/my-neovim-setup  <br>
 https://github.com/Zeddnyx/Znvim  <br>
 https://github.com/ChristianChiarulli/nvim  <br>
 https://github.com/LunarVim/starter.lvim <br>
+https://github.com/Nawy/nvim-config-examples/tree/main/dap-java <br>
 https://github.com/DaikyXendo/nvim-material-icon<br>
 https://github.com/jdhao/nvim-config <br>
 https://github.com/wuelnerdotexe/nvim <br>
