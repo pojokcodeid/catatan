@@ -55,6 +55,7 @@
     - https://www.baeldung.com/spring-tutorial
     - https://www.tutorialspoint.com/spring/index.htm
     - https://www.w3schools.blog/spring-boot-tutorial
+    - https://www.tutorialspoint.com/javafx/index.htm
 19. CPP
     - https://www.learncpp.com/
     - https://www.w3schools.com/cpp/
@@ -69,6 +70,7 @@
     - https://www.tutorialspoint.com/codeigniter/installing_codeigniter.htm
 23. Laravel
     - https://www.w3schools.in/laravel/tutorials/
+    - https://www.tutorialspoint.com/laravel/index.htm
 24. Jquery
     - https://www.tutorialrepublic.com/jquery-tutorial/
     - https://www.tutorialspoint.com/jquery/index.htm
