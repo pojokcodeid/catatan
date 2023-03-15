@@ -95,3 +95,10 @@
 30. Android
     - https://www.tutorialspoint.com/android/index.htm
     - https://www.geeksforgeeks.org/android-tutorial/
+31. Jenkins
+    - https://www.tutorialspoint.com/jenkins/index.htm
+    - https://devopscube.com/jenkins-2-tutorials-getting-started-guide/
+    - https://www.jenkins.io/doc/tutorials/
+32. Docker
+    - https://www.tutorialspoint.com/docker/index.htm
+    - https://docker-curriculum.com/
