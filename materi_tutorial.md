@@ -1,13 +1,16 @@
 1. HTML (done)
    - https://www.tutorialspoint.com/html/index.htm
    - https://www.w3schools.com/html/
+   - https://www.tutorialrepublic.com/html-tutorial/
 2. CSS (done)
    - https://www.tutorialspoint.com/css/index.htm
    - https://www.w3schools.com/css/default.asp
+   - https://www.tutorialrepublic.com/css-tutorial/
 3. Javascript
    - https://www.tutorialspoint.com/javascript/index.htm
    - https://www.w3schools.com/js/default.asp
    - https://www.javascripttutorial.net/
+   - https://www.tutorialrepublic.com/javascript-tutorial/
 4. SQL Server (done)
    - https://www.sqlservertutorial.net/
 5. MySQL (done)
@@ -24,6 +27,9 @@
     - https://www.pythontutorial.net/
 11. PHP
     - https://www.phptutorial.net/
+    - https://www.w3schools.in/php/tutorials/
+    - https://www.w3schools.com/php/default.asp
+    - https://www.tutorialrepublic.com/php-tutorial/
 12. Express JS
     - https://www.tutorialspoint.com/expressjs/index.htm
 13. Next Js
@@ -63,3 +69,14 @@
     - https://www.tutorialspoint.com/codeigniter/installing_codeigniter.htm
 23. Laravel
     - https://www.w3schools.in/laravel/tutorials/
+24. Jquery
+    - https://www.tutorialrepublic.com/jquery-tutorial/
+    - https://www.tutorialspoint.com/jquery/index.htm
+    - https://www.w3schools.com/jquery/
+25. Jquery UI
+    - https://www.tutorialspoint.com/jqueryui/index.htm
+    - https://jqueryui.com/
+26. Bootstrap 5
+    - https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
+    - https://www.w3schools.com/bootstrap5/
+    - 
