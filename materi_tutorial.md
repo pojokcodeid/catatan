@@ -21,6 +21,6 @@
 9. Typescript
    - https://www.typescripttutorial.net/
 10. Python
-   - https://www.pythontutorial.net/
+    - https://www.pythontutorial.net/
 11. PHP
-   - https://www.phptutorial.net/
+    - https://www.phptutorial.net/
