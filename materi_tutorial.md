@@ -79,4 +79,17 @@
 26. Bootstrap 5
     - https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
     - https://www.w3schools.com/bootstrap5/
-    - 
+27. Kotlin
+    - https://www.tutorialspoint.com/kotlin/index.htm
+    - https://www.w3schools.com/kotlin/index.php
+    - https://www.geeksforgeeks.org/kotlin-android-tutorial/
+28. Dart
+    - https://www.tutorialspoint.com/dart_programming/index.htm
+    - https://dart.dev/tutorials
+    - https://www.geeksforgeeks.org/dart-tutorial/
+29. Flutter
+    - https://www.tutorialspoint.com/flutter/index.htm
+    - https://docs.flutter.dev/reference/tutorials
+30. Android
+    - https://www.tutorialspoint.com/android/index.htm
+    - https://www.geeksforgeeks.org/android-tutorial/
