@@ -24,3 +24,42 @@
     - https://www.pythontutorial.net/
 11. PHP
     - https://www.phptutorial.net/
+12. Express JS
+    - https://www.tutorialspoint.com/expressjs/index.htm
+13. Next Js
+    - https://www.tutorialspoint.com/nextjs/index.htm
+14. React JS
+    - https://www.w3schools.com/react/
+    - https://www.tutorialspoint.com/reactjs/index.htm
+    - https://www.geeksforgeeks.org/reactjs-tutorials/
+    - https://w3cschoool.com/reactjs-tutorial
+15. Tailwind CSS
+    - https://www.geeksforgeeks.org/tailwind-css/
+16. Golang Tutorial
+    - https://tutorialedge.net/golang/
+    - https://www.w3schools.com/go/index.php
+    - https://www.tutorialspoint.com/go/index.htm
+17. GIT
+    - https://www.tutorialspoint.com/git/index.htm
+    - https://www.w3schools.com/git/default.asp
+18. Java 
+    - https://javatutorial.net/
+    - https://www.w3schools.com/java/
+    - https://www.tutorialspoint.com/java/index.htm
+    - https://www.baeldung.com/spring-tutorial
+    - https://www.tutorialspoint.com/spring/index.htm
+    - https://www.w3schools.blog/spring-boot-tutorial
+19. CPP
+    - https://www.learncpp.com/
+    - https://www.w3schools.com/cpp/
+    - https://www.tutorialspoint.com/cplusplus/index.htm
+20. Angular JS
+    - https://www.w3schools.com/angular/
+    - https://www.tutorialspoint.com/angularjs/index.htm
+21. VUE JS
+    - https://www.tutorialspoint.com/vuejs/index.htm
+    - https://w3cschoool.com/vue.js-tutorial
+22. Codeigniter 
+    - https://www.tutorialspoint.com/codeigniter/installing_codeigniter.htm
+23. Laravel
+    - https://www.w3schools.in/laravel/tutorials/
