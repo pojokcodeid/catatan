@@ -11,6 +11,7 @@
    - https://www.w3schools.com/js/default.asp
    - https://www.javascripttutorial.net/
    - https://www.tutorialrepublic.com/javascript-tutorial/
+   - https://javascript.info/
 4. SQL Server (done)
    - https://www.sqlservertutorial.net/
 5. MySQL (done)
