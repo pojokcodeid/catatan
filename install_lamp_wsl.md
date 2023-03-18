@@ -19,6 +19,12 @@ sudo service apache2 start
 ```
 sudo chmod 777 /var/www/html -R
 ln -s /var/www/html public_html
+
+-- ini jika ingin share code dari local windows
+ln -s /mnt/c/www/ project
+
+-- untuk menghapusnya 
+unlink project
 ```
 7. Create file php
 ```
