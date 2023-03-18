@@ -12,6 +12,14 @@ sudo apt-get update && sudo apt-get upgrade -y
 ```
 5. Install PHP dan Apache2
 ```
+-- jika ingin menggunakan php 8.2
+sudo apt install -y lsb-release gnupg2 ca-certificates apt-transport-https software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install php8.2
+sudo apt-get install apache2 libapache2-mod-php8.2 php-mysql -y
+
+-- ini kalau mau install default
 sudo apt-get install apache2 php libapache2-mod-php php-mysql -y
 sudo service apache2 start
 ```
