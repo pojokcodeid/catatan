@@ -25,3 +25,40 @@ ln -s /var/www/html public_html
 cd public_html
 vim index.php
 ```
+8. Install MySQL
+```
+sudo apt-get install mysql-server
+mysql --version
+sudo /etc/init.d/mysql start
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED with mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
+
+exit
+sudo mysql_secure_installation -p
+n 
+n 
+y
+n 
+n
+y
+```
+- test login
+```
+sudo mysql -u root -p
+```
+- Edit Port
+```
+sudo nano /etc/mysql/my.cnf
+```
+- tambahkan pada paling bawah
+```
+[mysqld]
+port = 33061
+```
+- restart MySQL
+```
+sudo service mysql restart
+sudo update-rc.d mysql defaults
+```
+- Test koneksi dari host Windows
