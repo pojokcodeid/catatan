@@ -39,6 +39,28 @@ unlink project
 cd public_html
 vim index.php
 ```
+## jika ingin link to wondows house
+- buat folder alias
+```
+cd /var/www
+sudo chmod 777 /var/www -R
+ln -s /mnt/c/www/ projects
+```
+- ubah config to projects
+```
+cd /etc/apache2/sites-avaliable
+sudo vim 000-default.conf
+
+-- ubah dari 
+ DocumentRoot /var/www/html
+ DocumentRoot /var/www/projects
+```
+- restart
+```
+ sudo service apache2 restart
+```
+- test lagi dengan file index.php di c/www/  (windows house)
+
 8. Install MySQL
 ```
 sudo apt-get install mysql-server
