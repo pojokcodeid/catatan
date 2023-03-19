@@ -16,7 +16,15 @@ sudo apt-get install php8.2-cli php8.2-fpm php8.2-curl php8.2-gd php8.2-mysql ph
 
 sudo service php8.2-fpm start
 
+-- tanya chat GPT dengan key Bagaimana cara memberikan akses nginx ke folder home?
+-- ini untuk acess home dir
+ls -l /home
+sudo usermod -a -G asep www-data
+sudo chown -R asep:www-data /home/asep/
+sudo chmod -R 750 /home/asep/
+
 sudo nano /etc/nginx/sites-available/default
+-- ubah root folder /home/asep/pcode
 -- tambahkan index.php 
 
 location ~ \.php$ {
