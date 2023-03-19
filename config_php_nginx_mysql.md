@@ -1,3 +1,4 @@
+```
 sudo apt-get update && sudo apt-get upgrade -y
 sudo add-apt-repository ppa:nginx/stable
 sudo apt-get update
@@ -25,7 +26,7 @@ location ~ \.php$ {
 
 -- buat alias di home dir
 sudo ln -s /var/www/pcode /home/asep/pcode 
-
+```
 # Install MySQL
 ```
 sudo apt-get install mysql-server
