@@ -108,4 +108,5 @@
     - https://www.tutorialspoint.com/mongodb/index.htm
 
 # Tambahan <br>
-https://github.com/practical-tutorials/project-based-learning
+https://github.com/practical-tutorials/project-based-learning <br>
+https://o7planning.org/
