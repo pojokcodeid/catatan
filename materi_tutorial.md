@@ -110,4 +110,5 @@
 # Tambahan <br>
 https://github.com/practical-tutorials/project-based-learning <br>
 https://o7planning.org/ <br>
-https://skillplus.web.id/
+https://skillplus.web.id/ <br>
+https://getbootstrap.com/docs/5.3/examples/blog/   (ini contoh blog ada stykynya)
