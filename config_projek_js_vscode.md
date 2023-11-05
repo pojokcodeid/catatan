@@ -47,10 +47,9 @@
 ```json
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "*": ["node_modules/*"]
+      "./": ["src"]
     }
   },
   "include": ["src"]
