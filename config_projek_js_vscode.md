@@ -49,7 +49,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "./": ["src"]
+      "./": ["src"],
+      "../*": ["src/*"]
     }
   },
   "include": ["src"]
