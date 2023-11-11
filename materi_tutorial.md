@@ -83,6 +83,8 @@
 23. Laravel
     - https://www.w3schools.in/laravel/tutorials/
     - https://www.tutorialspoint.com/laravel/index.htm
+    - https://santrikoding.com/tutorial-set/tutorial-laravel-9-untuk-pemula
+    - https://santrikoding.com/tutorial-set/tutorial-restful-api-laravel-10
 24. Jquery
     - https://www.tutorialrepublic.com/jquery-tutorial/
     - https://www.tutorialspoint.com/jquery/index.htm
