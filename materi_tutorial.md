@@ -14,12 +14,19 @@
    - https://javascript.info/
 4. SQL Server (done)
    - https://www.sqlservertutorial.net/
+   - https://www.tutorialspoint.com/ms_sql_server/index.htm
+   - https://www.w3schools.com/sql/
 5. MySQL (done)
    - https://www.mysqltutorial.org/
+   - https://www.w3schools.com/MySQL/default.asp
+   - https://www.tutorialspoint.com/mysql/index.htm
 6. PostgreSQL (done)
    - https://www.postgresqltutorial.com/
+   - https://www.w3schools.com/postgresql/index.php
 7. Oracle Database
    - https://www.oracletutorial.com/
+   - https://www.tutorialspoint.com/plsql/index.htm
+   - https://www.w3schools.blog/oracle-tutorial
 8. SQL Lite
    - https://www.sqlitetutorial.net/
 9. Typescript
