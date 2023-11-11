@@ -26,6 +26,9 @@
    - https://www.typescripttutorial.net/
 10. Python
     - https://www.pythontutorial.net/
+    - https://dasarpemrogramanpython.novalagung.com/
+    - https://www.w3schools.com/python/
+    - https://www.tutorialspoint.com/python/index.htm
 11. PHP
     - https://www.phptutorial.net/
     - https://www.w3schools.in/php/tutorials/
