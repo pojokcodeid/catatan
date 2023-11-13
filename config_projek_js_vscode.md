@@ -41,6 +41,22 @@
   "include": ["src/**/*"]
 }
 ```
+
+
+- Setting Reat JS
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "./": ["src"],
+      "../*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}
+```
 ```json
 {
   "compilerOptions": {
@@ -52,21 +68,6 @@
       "./": ["src"],
       "../*": ["src/*"],
       "*": ["node_modules/*"]
-    }
-  },
-  "include": ["src/**/*"]
-}
-```
-
-- Setting Reat JS
-
-```json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "./": ["src"],
-      "../*": ["src/*"]
     }
   },
   "include": ["src/**/*"]
