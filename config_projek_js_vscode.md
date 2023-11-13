@@ -41,6 +41,22 @@
   "include": ["src/**/*"]
 }
 ```
+```json
+{
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es6",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "./": ["src"],
+      "../*": ["src/*"],
+      "*": ["node_modules/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}
+```
 
 - Setting Reat JS
 
