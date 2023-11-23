@@ -126,7 +126,8 @@ https://o7planning.org/ <br>
 https://skillplus.web.id/ <br>
 https://getbootstrap.com/docs/5.3/examples/blog/   (ini contoh blog ada stykynya)<br>
 https://www.phptpoint.com/ <br>
-https://www.geeksforgeeks.org/reactjs-introduction-jsx/
+https://www.geeksforgeeks.org/reactjs-introduction-jsx/ <br>
+https://thevalleyofcode.com/
 
 #tree voew example
 https://codepen.io/husin/pen/MPEjMK <br>
