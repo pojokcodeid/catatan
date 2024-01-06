@@ -12,6 +12,7 @@
    - https://www.javascripttutorial.net/
    - https://www.tutorialrepublic.com/javascript-tutorial/
    - https://javascript.info/
+   - https://30dayjavascript.js.org/
 4. SQL Server (done)
    - https://www.sqlservertutorial.net/
    - https://www.tutorialspoint.com/ms_sql_server/index.htm
