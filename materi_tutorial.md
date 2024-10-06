@@ -106,6 +106,8 @@
     - https://www.tutorialspoint.com/dart_programming/index.htm
     - https://dart.dev/tutorials
     - https://www.geeksforgeeks.org/dart-tutorial/
+    - https://www.darttutorial.org/
+    - https://dart-tutorial.com/
 29. Flutter
     - https://www.tutorialspoint.com/flutter/index.htm
     - https://docs.flutter.dev/reference/tutorials
