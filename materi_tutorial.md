@@ -53,6 +53,7 @@
     - https://w3cschoool.com/reactjs-tutorial
 15. Tailwind CSS
     - https://www.geeksforgeeks.org/tailwind-css/
+    - https://www.hyperui.dev/
 16. Golang Tutorial
     - https://tutorialedge.net/golang/
     - https://www.w3schools.com/go/index.php
