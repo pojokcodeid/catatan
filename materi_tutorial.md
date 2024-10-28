@@ -72,6 +72,7 @@
     - https://www.tutorialspoint.com/spring/index.htm
     - https://www.w3schools.blog/spring-boot-tutorial
     - https://www.tutorialspoint.com/javafx/index.htm
+    - https://www.programiz.com/java-programming/getting-started
 19. CPP
     - https://www.learncpp.com/
     - https://www.w3schools.com/cpp/
