@@ -126,6 +126,11 @@
 33. MongoDB
     - https://www.mongodbtutorial.org/
     - https://www.tutorialspoint.com/mongodb/index.htm
+34. Rust
+    - https://dasarpemrogramanrust.novalagung.com/
+    - https://doc.rust-lang.org/book/
+    - https://www.tutorialspoint.com/rust/index.htm
+    - https://www.programiz.com/rust/getting-started
 
 # Tambahan <br>
 https://github.com/practical-tutorials/project-based-learning <br>
