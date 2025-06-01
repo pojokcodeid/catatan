@@ -145,7 +145,10 @@ https://getbootstrap.com/docs/5.3/examples/blog/   (ini contoh blog ada stykynya
 https://www.phptpoint.com/ <br>
 https://www.geeksforgeeks.org/reactjs-introduction-jsx/ <br>
 https://thevalleyofcode.com/  <br>
-https://sko.dev/referensi
+https://sko.dev/referensi <br>
+
+# Buat latihan ngelab
+https://kodekloud.com/pages/free-labs
 
 #tree voew example
 https://codepen.io/husin/pen/MPEjMK <br>
