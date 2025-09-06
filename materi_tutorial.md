@@ -136,6 +136,8 @@
 35. Lucee CFML
     - https://rorylaitila.gitbooks.io/lucee/content/
     - https://modern-cfml.ortusbooks.com/
+36. Perl Tutorial
+    - https://www.perltutorial.org/
 
 
 # Tambahan <br>
