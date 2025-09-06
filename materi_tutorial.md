@@ -60,6 +60,7 @@
     - https://www.tutorialspoint.com/go/index.htm
     - https://dasarpemrogramangolang.novalagung.com
     - https://gowebexamples.com/
+    - https://www.gotutorial.org/
 17. GIT
     - https://www.tutorialspoint.com/git/index.htm
     - https://www.w3schools.com/git/default.asp
