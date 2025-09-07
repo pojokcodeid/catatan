@@ -115,6 +115,7 @@
 29. Flutter
     - https://www.tutorialspoint.com/flutter/index.htm
     - https://docs.flutter.dev/reference/tutorials
+    - https://flutter-tutorial.net/
 30. Android
     - https://www.tutorialspoint.com/android/index.htm
     - https://www.geeksforgeeks.org/android-tutorial/
