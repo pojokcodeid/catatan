@@ -61,6 +61,7 @@
     - https://dasarpemrogramangolang.novalagung.com
     - https://gowebexamples.com/
     - https://www.gotutorial.org/
+    - https://www.rameshfadatare.com/learn-go-programming/
 17. GIT
     - https://www.tutorialspoint.com/git/index.htm
     - https://www.w3schools.com/git/default.asp
