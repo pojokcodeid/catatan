@@ -63,6 +63,9 @@
     - https://www.gotutorial.org/
     - https://www.rameshfadatare.com/learn-go-programming/
     - https://golangbot.com/learn-golang-series/
+    - https://www.programiz.com/golang
+    - https://santrikoding.com/tutorial-set/belajar-golang-dasar
+    - https://santrikoding.com/tutorial-set/tutorial-restful-api-golang
 17. GIT
     - https://www.tutorialspoint.com/git/index.htm
     - https://www.w3schools.com/git/default.asp
