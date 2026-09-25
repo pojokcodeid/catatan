@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucee CFML Memory & GC Optimization</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-lucee: #0284c7;
+            --accent-lucee-light: #38bdf8;
+            --code-bad-bg: rgba(239, 68, 68, 0.1);
+            --code-bad-border: #ef4444;
+            --code-good-bg: rgba(34, 197, 94, 0.1);
+            --code-good-border: #22c55e;
+            --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --font-code: 'Fira Code', 'Consolas', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .deck-container {
+            width: 90vw;
+            max-width: 1280px;
+            height: 85vh;
+            max-height: 800px;
+            position: relative;
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            padding: 40px 60px;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* Slide Header */
+        .slide-header {
+            margin-bottom: 24px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            color: var(--accent-lucee-light);
+            font-weight: 700;
+        }
+
+        .slide-category {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Content Layouts */
+        .slide-content {
+            flex: 1;
+            display: flex;
+            gap: 30px;
+        }
+
+        .col-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+        }
+
+        /* Code Comparison Cards */
+        .code-box {
+            border-radius: 8px;
+            padding: 16px;
+            background: #0d1117;
+            font-family: var(--font-code);
+            font-size: 0.82rem;
+            line-height: 1.45;
+            overflow-x: auto;
+            border-left: 5px solid transparent;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .code-box.bad {
+            border-color: var(--code-bad-border);
+            background: #180d11;
+        }
+
+        .code-box.good {
+            border-color: var(--code-good-border);
+            background: #0d1813;
+        }
+
+        .code-header {
+            font-weight: bold;
+            font-family: var(--font-main);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .code-header.bad-text { color: #f87171; }
+        .code-header.good-text { color: #4ade80; }
+
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Syntax Highlighting Sim */
+        .kw { color: #ff79c6; font-weight: bold; } /* Keywords */
+        .fn { color: #50fa7b; } /* Functions */
+        .str { color: #f1fa8c; } /* Strings */
+        .cmt { color: #6272a4; font-style: italic; } /* Comments */
+        .var { color: #bd93f9; } /* Variables */
+
+        /* Typography & List Elements */
+        p { line-height: 1.6; color: var(--text-main); margin-bottom: 12px; }
+        ul { margin-left: 20px; margin-bottom: 16px; }
+        li { margin-bottom: 8px; color: var(--text-main); }
+        strong { color: var(--accent-lucee-light); }
+
+        /* Card Elements */
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        /* Navigation Bar */
+        .deck-nav {
+            height: 60px;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-btn {
+            background: var(--accent-lucee);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover { background: var(--accent-lucee-light); color: var(--bg-primary); }
+        .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        .slide-counter {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Title Slide Customization */
+        .slide-title-screen {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="deck-container">
+
+    <!-- SLIDE 1: Title -->
+    <div class="slide slide-title-screen active">
+        <h1 class="main-title">Optimasi Memori &amp; GC di Lucee CFML</h1>
+        <p class="subtitle">Strategi penulisan kode berkinerja tinggi untuk efisiensi JVM Heap dan minimalisasi pemicuan Garbage Collector.</p>
+        <div style="margin-top: 20px; font-size: 0.85rem; color: var(--accent-lucee-light);">
+            Gunakan Tombol Panah Kanan/Kiri pada Keyboard
+        </div>
+    </div>
+
+    <!-- SLIDE 2: Dasar JVM Memory Architecture -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2 class="slide-title">1. Arsitektur Memori JVM</h2>
+            <span class="slide-category">Fondasi Dasar</span>
+        </div>
+        <div class="slide-content">
+            <div class="col-2">
+                <div class="card">
+                    <h3 style="color: #38bdf8; margin-bottom: 10px;">Stack Memory</h3>
+                    <ul>
+                        <li>Menyimpan **tipe data primitif** dan **reference pointer**.</li>
+                        <li>Siklus hidup singkat (sesuai eksekusi *function/thread*).</li>
+                        <li>**Sangat Cepat** &amp; Bebas dari Garbage Collector.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="color: #f472b6; margin-bottom: 10px;">Heap Memory</h3>
+                    <ul>
+                        <li>Tempat tinggal **semua Objek** (Struct, Array, CFC, Query, String).</li>
+                        <li>Dikelola sepenuhnya oleh **Garbage Collector (GC)**.</li>
+                        <li>Alokasi liar memicu *GC Overhead* &amp; *Latency Spikes*.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: Escape Analysis -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2 class="slide-title">2. Rahasia: Escape Analysis</h2>
+            <span class="slide-category">Mekanisme JVM</span>
+        </div>
+        <div class="slide-content" style="flex-direction: column;">
+            <p>Bagaimana JVM menyimpan objek di Stack tanpa memicu Garbage Collector?</p>
+            <div class="card" style="background: rgba(2, 132, 199, 0.1); border-color: var(--accent-lucee);">
+                <h3 style="color: var(--accent-lucee-light); margin-bottom: 8px;">Scalar Replacement oleh JIT Compiler (C2)</h3>
+                <p>Jika JVM mendeteksi objek dibuat lokal dan <strong>TIDAK "KABUR"</strong> (tidak di-return atau diakses thread lain), objek dipisah menjadi variabel primitif lokal dan dialokasikan ke <strong>Stack</strong>!</p>
+            </div>
+            <div class="card">
+                <h4>Syarat Agar Lolos Escape Analysis:</h4>
+                <ul>
+                    <li>Gunakan <code>var</code> / <code>local</code> scope secara ketat.</li>
+                    <li>Jangan passing objek ke variabel eksternal / global scope.</li>
+                    <li>Batasi masa hidup objek hanya di dalam fungsi internal.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: Peran Var dan Local -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2 class="slide-title">3. Peran `var` &amp; `local` Scope</h2>
+            <span class="slide-category">Lucee Scoping</span>
+        </div>
+        <div class="slide-content">
+            <div class="col-2">
+                <div class="card">
+                    <h3 style="color: #ef4444; margin-bottom: 10px;">Tanpa `var` (Unscoped)</h3>
+                    <p>Variabel otomatis bocor ke scope <code>variables</code> (CFC Instance Level).</p>
+                    <p><strong>Dampak:</strong> Data bertahan di Heap selama objek CFC hidup. Penyebab utama <em>Memory Leak</em> di aplikasi Lucee/CFML.</p>
+                </div>
+                <div class="card">
+                    <h3 style="color: #22c55e; margin-bottom: 10px;">Menggunakan `var` / `local`</h3>
+                    <p>Variabel terkunci di dalam Local Scope fungsi.</p>
+                    <p><strong>Dampak:</strong> Memori langsung dibebaskan begitu fungsi selesai. Buka jalan optimasi *Escape Analysis* JVM.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: Strategi Penulisan Kode -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2 class="slide-title">4. Strategi Utama Penulisan Kode</h2>
+            <span class="slide-category">Best Practices</span>
+        </div>
+        <div class="slide-content" style="flex-direction: column;">
+            <div class="card">
+                <strong style="color:#38bdf8">1. Hindari Instansiasi Objek dalam Looping Ketat</strong>
+                <p>Jangan membuat Struct/Array baru di dalam perulangan ribuan kali. Lakukan *reuse* variabel.</p>
+            </div>
+            <div class="card">
+                <strong style="color:#38bdf8">2. Manipulasi String dengan StringBuilder</strong>
+                <p>Penggabungan String (<code>&=</code>) membuat objek String baru setiap kali berjalan. Gunakan Java <code>StringBuilder</code> untuk penggabungan skala besar.</p>
+            </div>
+            <div class="card">
+                <strong style="color:#38bdf8">3. Gunakan Query Stream / Cursor Data</strong>
+                <p>Hindari memuat seluruh record database ke dalam Heap sekaligus. Manfaatkan streaming batching.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: Contoh Kode - Scoping & Loop Object Allocation -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2 class="slide-title">5. Contoh Kode: Scoping &amp; Allocation</h2>
+            <span class="slide-category">Studi Kasus 1 &amp; 2</span>
+        </div>
+        <div class="slide-content">
+            <div class="col-2">
+                <!-- Case 1 Bad -->
+                <div class="code-box bad">
+                    <div class="code-header bad-text">❌ BURUK: Kebocoran Scope &amp; Loop Allocation</div>
+<pre><code><span class="kw">public void</span> <span class="fn">processBatch</span>(<span class="kw">array</span> itemIds) {
+    <span class="cmt">// BURUK: 'payload' bocor ke variables scope!</span>
+    <span class="cmt">// Membuat Objek Struct baru di Heap per iterasi</span>
+    <span class="kw">for</span> (<span class="var">id</span> <span class="kw">in</span> itemIds) {
+        payload = {
+            id: id,
+            processedAt: <span class="fn">now</span>()
+        };
+        <span class="fn">sendToQueue</span>(payload);
+    }
+}</code></pre>
+                </div>
+
+                <!-- Case 1 Good -->
+                <div class="code-box good">
+                    <div class="code-header good-text">✅ BAIK: Local Scope &amp; Reuse Data</div>
+<pre><code><span class="kw">public void</span> <span class="fn">processBatch</span>(<span class="kw">array</span> itemIds) {
+    <span class="cmt">// BAIK: Hitung waktu sekali &amp; hindari struct wrapper</span>
+    <span class="kw">var</span> currentTime = <span class="fn">now</span>();
+    
+    <span class="kw">for</span> (<span class="kw">var</span> id <span class="kw">in</span> itemIds) {
+        <span class="cmt">// Melewatkan primitif langsung (Zero Heap Allocation)</span>
+        <span class="fn">sendToQueueDirect</span>(id, currentTime);
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: Contoh Kode - String Concat & Large Dataset -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2 class="slide-title">6. Contoh Kode: String &amp; Stream Query</h2>
+            <span class="slide-category">Studi Kasus 3 &amp; 4</span>
+        </div>
+        <div class="slide-content">
+            <div class="col-2">
+                <!-- Case 2 Bad -->
+                <div class="code-box bad">
+                    <div class="code-header bad-text">❌ BURUK: Concat String `&=` dalam Loop</div>
+<pre><code><span class="kw">public string</span> <span class="fn">buildCsv</span>(<span class="kw">array</span> records) {
+    <span class="kw">var</span> csvContent = <span class="str">""</span>;
+    <span class="cmt">// BURUK: Meminta objek String baru di Heap per loop</span>
+    <span class="kw">for</span> (<span class="kw">var</span> row <span class="kw">in</span> records) {
+        csvContent &amp;= row.id &amp; <span class="str">","</span> &amp; row.name &amp; <span class="str">"#chr(10)#"</span>;
+    }
+    <span class="kw">return</span> csvContent;
+}</code></pre>
+                </div>
+
+                <!-- Case 2 Good -->
+                <div class="code-box good">
+                    <div class="code-header good-text">✅ BAIK: Java StringBuilder Native</div>
+<pre><code><span class="kw">public string</span> <span class="fn">buildCsv</span>(<span class="kw">array</span> records) {
+    <span class="cmt">// BAIK: StringBuilder mengelola buffer elastis</span>
+    <span class="kw">var</span> sb = <span class="fn">createObject</span>(<span class="str">"java"</span>, <span class="str">"java.lang.StringBuilder"</span>).<span class="fn">init</span>();
+    
+    <span class="kw">for</span> (<span class="kw">var</span> row <span class="kw">in</span> records) {
+        sb.<span class="fn">append</span>(row.id).<span class="fn">append</span>(<span class="str">","</span>)
+          .<span class="fn">append</span>(row.name).<span class="fn">append</span>(<span class="str">"#chr(10)#"</span>);
+    }
+    <span class="kw">return</span> sb.<span class="fn">toString</span>();
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: Kesimpulan -->
+    <div class="slide">
+        <div class="slide-header">
+            <h2 class="slide-title">Kesimpulan &amp; Action Plan</h2>
+            <span class="slide-category">Rangkuman</span>
+        </div>
+        <div class="slide-content" style="flex-direction: column;">
+            <div class="card" style="border-left: 5px solid var(--accent-lucee);">
+                <h3 style="color: var(--accent-lucee-light);">Ringkasan Praktik Terbaik:</h3>
+                <ol style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                    <li>Gunakan <code>var</code> pada setiap variabel di dalam method untuk mengunci scope ke tingkat lokal.</li>
+                    <li>Hindari membuat Objek Struct/Array/CFC baru secara berulang di dalam <i>looping</i>.</li>
+                    <li>Manfaatkan <code>StringBuilder</code> untuk manipulasi string berukuran besar.</li>
+                    <li>Gunakan streaming / batching pada pemrosesan query ribuan baris.</li>
+                    <li>Batasi penggunaan scope global (<code>session</code>, <code>application</code>) hanya untuk identifier sederhana.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Control Footer -->
+    <div class="deck-nav">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">❮ Previous</button>
+        <span class="slide-counter" id="slideCounter">Slide 1 of 8</span>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next ❯</button>
+    </div>
+
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function updateSlide() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if (index === currentSlide) {
+                slide.classList.add('active');
+            }
+        });
+
+        slideCounter.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === slides.length - 1;
+    }
+
+    function changeSlide(direction) {
+        currentSlide += direction;
+        if (currentSlide < 0) currentSlide = 0;
+        if (currentSlide >= slides.length) currentSlide = slides.length - 1;
+        updateSlide();
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'Space') {
+            if (currentSlide < slides.length - 1) changeSlide(1);
+        } else if (e.key === 'ArrowLeft') {
+            if (currentSlide > 0) changeSlide(-1);
+        }
+    });
+
+    // Initialize
+    updateSlide();
+</script>
+
+</body>
+</html>
